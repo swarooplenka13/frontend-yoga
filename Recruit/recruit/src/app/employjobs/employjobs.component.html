@@ -1,0 +1,102 @@
+<app-nav></app-nav>
+<div *ngIf="!this.i; else elseBlock">
+    <div class="fl">
+        <button type="submit" class="btn btn-primary" (click)="nav()">Back to DashBoard</button>
+        <button type="submit" class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+    <div class="fgc">
+        <h1><b>
+            Available Jobs
+        </b> 
+    </h1>
+    </div>
+    <div class="fgcd">
+        <a href={{this.link}}>Click here for Applied Jobs</a>
+    </div>
+    <ul>
+        <li *ngFor="let elem of this.jobs;">
+            <ul *ngFor="  let v of elem['post']">
+                <div class="w3-container fgc">
+                    <div class="w3-card-4" style="width:60%">
+                        <header class="w3-container w3-light-blue">
+                        </header>
+                        <div class="w3-container fgc">
+                            <b class="bd">COMPANYNAME</b>{{v.CompanyName}}
+                            <b class="bd">EMAIL</b> {{v.email}}
+                            <b class="bd">JOB DESCRIPTION</b> <button class="btn btn-primary d"
+                                (click)="rd(v.desc)">view</button>
+                            <b class="bd">ROLE</b> {{v['role']}}
+                            <b class="bd">TYPE</b>{{v['type']}}
+                            <b class="bd">SALARY</b> {{v['other']}}
+                            <button class="w3-button w3-block w3-green"
+                                (click)="match(v.desc,v.CompanyName,v.email,v.role,v.type,v.other,v.address)">
+                                Easy Resume Match
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </li>
+    </ul>
+</div>
+<ng-template #elseBlock>
+    <div class="vd">
+        Easy Resume Matcher @ RECRUIT
+    </div>
+    <button class="btn btn-primary p" (click)="cr()">Close this Window</button> <br>
+    <div class="ur">
+        <div *ngIf="this.show" class="fd">
+            <div class="load" *ngIf="!this.matc; else elseblock">
+                <br>
+                <mat-spinner></mat-spinner>
+                <span>Loading...</span>
+                <div *ngIf="this.matc===0">
+                    <p>
+                        If the loading takes time it might have Chance that your resume does not the Job Description.
+                        You Can Close the Window and try upload the Resume again.
+                    </p>
+                </div>
+            </div>
+            <ng-template #elseblock>
+                <div *ngIf="!this.achievement else elseBlock" class="cen">
+                    Getting a few things ready...
+                </div>
+                <ng-template #elseBlock>
+                    Your resume Matches <b>{{this.matc}}%</b> of the Job Description,
+                    You do want to apply
+                    <button class="btn btn-primary" (click)="apply()">
+                        apply
+                    </button>
+                    ___or___
+                    <button *ngIf="!this.shup" class="btn btn-success" (click)="up()">Update Resume</button>
+                    <div *ngIf="this.shup">
+                        <span class="tab" Style="font-weight:bold;">UPDATE RESUME</span>
+                        <br>
+                        <input type=file (change)="upload($event)" />
+                        <br>
+                        <div class="sz">
+                            <div *ngIf="this.shw">
+                                <div class="sz" *ngIf="!this.downloadurl; else elseBlock">
+                                    <mat-spinner></mat-spinner>
+                                    Uploading...
+                                </div>
+                                <ng-template #elseBlock>
+                                    <span>
+                                        Uploaded
+                                    </span>
+                                </ng-template>
+                            </div>
+                        </div>
+                        <button style="margin:1em;" class="btn btn-primary" (click)="Submit()">Update</button>
+                        <button class="btn btn-danger" (click)="cup()">Close</button>
+                    </div>
+                </ng-template>
+            </ng-template>
+            <br>
+            <button class="btn btn-danger" (click)="close()">close</button>
+        </div>
+    </div>
+</ng-template>
+<div class="foo">
+    <app-footer></app-footer>
+</div>

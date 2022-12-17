@@ -1,0 +1,26 @@
+<app-nav></app-nav>
+<h1 style="text-align: center;"> <b>
+        Applied Jobs
+    </b>
+    <br>
+</h1>
+<div class="fl">
+    <button type="submit" class="btn btn-danger btx" (click)="clapp()">Back to DashBoard</button>
+</div>
+<ul *ngFor="let v of this.jobs['applied']">
+<div class="w3-container fgc">
+    <div class="w3-card-4" style="width:60%">
+        <header class="w3-container w3-light-blue">
+        </header>
+            <div class="w3-container fgc">
+                <b class="bd">COMPANYNAME</b>{{v.CompanyName}}
+                <b class="bd">EMAIL</b>  {{v.email}}
+                <b class="bd">JOB DESCRIPTION</b>   <button class="w3-button w3-block w3-green" (click)="view(v.desc)">view</button>
+                <b class="bd">ROLE</b> {{v['role']}} 
+                <b class="bd">TYPE</b>{{v['type']}}
+                <b class="bd">SALARY</b> {{v['other']}}
+            </div>
+    </div>
+</div>
+</ul>
+<app-footer></app-footer>

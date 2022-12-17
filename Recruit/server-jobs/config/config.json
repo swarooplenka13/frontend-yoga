@@ -1,0 +1,16 @@
+{
+    "development": {
+        "PORT": 3002,
+        "MONGODB_URI": "mongodb+srv://admin:2dz9aCpMTfWS0C6N@cluster0.58o7png.mongodb.net/name",
+        "JWT_SECRET": "SECRET#1435333",
+        "JWT_EXP": "100m",
+        "API":"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"
+    },
+    "production": {
+        "PORT": 80,
+        "MONGODB_URI": "mongodb://xxxxx/DB_Name",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2m"
+    }
+}
+

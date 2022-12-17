@@ -1,0 +1,23 @@
+<app-nav></app-nav>
+<div class="cn">
+    <div class="w3-container fgc">
+        <div class="w3-card-4" style="width:60%">
+        <header class="w3-container w3-light-blue">
+            <h2><b>Two Factor Authentication-Employee</b></h2>
+            <h2><b>Enter the otp that has been sent to your mail</b></h2>
+            <h2><b style="color: red;">Enter otp carefully ,If entered wrong you need to do login again</b></h2>
+        </header>
+        <div class="w3-container fgc">
+            <mat-form-field appearance="fill">     
+                <input matInput type="text" placeholder="enter your otp" [(ngModel)]="this.otp1"> <br>
+            </mat-form-field>
+        </div>
+        <button class="w3-button w3-block w3-blue" (click)="c()">Continue</button>
+        <button class="w3-button w3-block w3-red" (click)="a()">Resend the otp</button>
+    </div>
+</div>
+</div>
+<div class="f">
+    <app-footer></app-footer>
+</div>
+

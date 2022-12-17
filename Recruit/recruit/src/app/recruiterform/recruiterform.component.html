@@ -1,0 +1,105 @@
+<!-- Section: Design Block -->
+<app-nav></app-nav>
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+        <div class="container">
+            <div class="row gx-lg-5 align-items-center">
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="my-5 display-3 fw-bold ls-tight">
+                        Welcome Recruiter
+                        <span class="text-primary">Post a Job</span>
+
+                    </h1>
+                    <p style="color: hsl(217, 10%, 50.8%)">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Eveniet, itaque accusantium odio, soluta, corrupti aliquam
+                        quibusdam tempora at cupiditate quis eum maiores libero
+                        veritatis? Dicta facilis sint aliquid ipsum atque?
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body py-5 px-md-5">
+                            <div class="con">
+                                <form class="example-form" [formGroup]="userservice.job" (submit)="Submit()">
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>CompanyName</mat-label>
+                                        <input type="text" matInput formControlName="CompanyName"
+                                            placeholder="FirstName">
+                                        <span class="error"
+                                            *ngIf="CompanyName!.invalid &&CompanyName!.touched">*FirstName is
+                                            Required</span>
+                                    </mat-form-field>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Email</mat-label>
+                                        <input type="text" matInput formControlName="email"
+                                            placeholder="Ex. pat@example.com">
+                                        <span class="error" *ngIf="email!.invalid &&email!.touched">*Email is
+                                            Required</span>
+                                    </mat-form-field>
+                                    <div class="mb-3 con1">
+                                        <div class="gf"><b>JOB DESCRIPTION</b></div>
+                                        <input type=file class="custom" (change)="upload($event)" />
+                                        <div class="">
+                                            <div *ngIf="this.show">
+                                                <div *ngIf="!this.download; else elseBlock">
+                                                        <mat-spinner></mat-spinner>
+                                                   <span style="color:green;">
+                                                    uploading...
+                                                   </span> 
+                                                </div>
+                                                <ng-template #elseBlock>
+                                                    <span style="color:green;">
+                                                       Uploaded...
+                                                    </span>
+                                                </ng-template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Job Role</mat-label>
+                                        <input type="text" matInput formControlName="role" placeholder="Ex.530026">
+                                        <span class="error" *ngIf="role!.invalid &&role!.touched">*Role is
+                                            Required</span>
+                                    </mat-form-field>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>location</mat-label>
+                                        <input type="text" matInput formControlName="address" placeholder="Ex. Address">
+                                        <span class="error" *ngIf="address!.invalid &&address!.touched">*address is
+                                            Required</span>
+                                    </mat-form-field>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Job Type</mat-label>
+                                        <input type="text" matInput formControlName="type" placeholder="Ex.530026">
+                                        <span class="error" *ngIf="type!.invalid &&type!.touched">*Postalcode is
+                                            Required</span>
+                                    </mat-form-field>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Salary</mat-label>
+                                        <input type="text" matInput formControlName="other" placeholder="salary">
+                                        <span class="error" *ngIf="other!.invalid &&other!.touched">*Salary is
+                                            Required</span>
+                                    </mat-form-field>
+                                    <br>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary btx"
+                                            [disabled]="!this.userservice.job.valid && !this.download">Submit</button>
+                                    </div>
+                                    <br>
+                                    <div *ngIf="this.serverErrorMessages">
+                                        {{this.serverErrorMessages}}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
+<!-- Section: Design Block -->
