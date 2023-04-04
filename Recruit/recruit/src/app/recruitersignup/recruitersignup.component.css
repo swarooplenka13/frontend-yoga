@@ -1,8 +1,0 @@
-.fgc{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2em;
-    gap:0.3em;
-}
